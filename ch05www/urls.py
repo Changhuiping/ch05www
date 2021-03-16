@@ -18,5 +18,11 @@ from django.urls import path
 from mysite import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage),
+    path('', views.homepage, {'testmode': 'YES'}),
+    path('hello/', views.homepage),
+    path('about/<int:author_no>/', views.about),
+    path('about/', views.about),
+    path('list/<int:yr>/<int:mon>/<int:day>/', views.listing),
+    path('post01/<int:yr>/<int:mon>/<int:day>/<int:post_num>/', views.post01, name = 'post-url'),
+    path('post/<int:yr>/<int:mon>/<int:day>/<int:post_num>/', views.post),
 ]
